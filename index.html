@@ -5,29 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarah Nguyen | Personal Website</title>
     <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-blue: #0056b3;
+        }
+
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            display: flex;
             margin: 0;
+            display: flex;
             background-color: #fff;
             color: #333;
+            transition: all 0.3s ease;
         }
 
-        /* Sidebar - Updated with Serif Font and Photo Space */
+        /* Sidebar - Serif Font & Fixed Position */
         nav {
-            width: 260px;
+            width: var(--sidebar-width);
             background-color: #fcfcfc;
             border-right: 1px solid #ddd;
-            padding: 30px 20px;
+            padding: 60px 20px 30px 20px; /* Space for the button at the top */
             height: 100vh;
             position: fixed;
+            left: 0;
+            top: 0;
             overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            /* Changing the sidebar font to a classic Serif style */
             font-family: "Georgia", "Times New Roman", serif;
+            transition: transform 0.3s ease;
+            z-index: 1000;
         }
 
+        /* Class to hide the sidebar */
+        .sidebar-hidden nav {
+            transform: translateX(-100%);
+        }
+
+        /* Menu Button - Styled like lamnguyen.org */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: #333; /* Color of the three lines */
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Profile & Menu Styling */
         .profile-photo {
             width: 150px;
             height: 150px;
@@ -39,64 +77,52 @@
             justify-content: center;
             color: #999;
             font-size: 0.8em;
-            text-align: center;
-            font-family: sans-serif; /* Keep placeholder text clean */
+            font-family: sans-serif;
         }
 
-        .site-title { 
-            font-weight: bold; 
-            font-size: 1.2em;
-            margin-bottom: 25px; 
-            display: block; 
-            color: #000; 
-            text-decoration: none; 
-        }
-        
+        .site-title { font-weight: bold; font-size: 1.2em; margin-bottom: 25px; display: block; color: #000; text-decoration: none; }
         .menu-group { margin-bottom: 20px; }
         .menu-item { display: block; text-decoration: none; color: #444; font-weight: bold; margin-top: 10px; font-size: 0.95em; }
         .sub-item { display: block; text-decoration: none; color: #777; margin-left: 15px; margin-top: 5px; font-size: 0.9em; }
         .sub-item:before { content: "- "; }
 
-        /* Main Content Area */
+        /* Main Content - Adjusts when sidebar is hidden */
         main {
-            margin-left: 320px;
-            padding: 60px;
-            max-width: 750px;
+            margin-left: var(--sidebar-width);
+            padding: 60px 80px;
+            max-width: 800px;
+            transition: margin-left 0.3s ease;
+            flex-grow: 1;
         }
 
-        /* The Blue Line Header */
-        h1 { 
-            font-size: 3em; 
-            text-transform: uppercase; 
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #000;
+        .sidebar-hidden main {
+            margin-left: 60px; /* Space for the button only */
         }
 
-        .blue-line {
-            height: 6px;
-            background-color: #0056b3; /* Professional blue */
-            width: 100%;
-            margin-bottom: 40px;
-        }
-
-        h2 { text-transform: uppercase; color: #444; margin-top: 40px; font-size: 1.4em; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        /* Content Headers */
+        h1 { font-size: 3em; text-transform: uppercase; margin-top: 0; margin-bottom: 10px; color: #000; }
+        .blue-line { height: 6px; background-color: var(--primary-blue); width: 100%; margin-bottom: 40px; }
+        h2 { text-transform: uppercase; color: #444; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
         
-        ul.math-chess-list { list-style-type: none; padding-left: 0; }
-        ul.math-chess-list li { margin-bottom: 25px; }
-        .category-label { font-weight: bold; font-size: 1.1em; color: #000; display: block; margin-bottom: 5px; }
+        .category-label { font-weight: bold; color: #000; display: block; margin-bottom: 5px; }
+        a { color: var(--primary-blue); text-decoration: none; border-bottom: 1px solid var(--primary-blue); }
 
-        a { color: #0056b3; text-decoration: none; border-bottom: 1px solid #0056b3; }
-        a:hover { color: #000; border-bottom-color: #000; }
+        @media (max-width: 768px) {
+            main { margin-left: 0; padding: 60px 20px; }
+            .sidebar-hidden main { margin-left: 0; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="profile-photo">
-            Photo Space
-        </div>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
+    <nav id="sidebar">
+        <div class="profile-photo">Photo Space</div>
         <a href="#" class="site-title">sarahnguyen.org</a>
         
         <div class="menu-group">
@@ -105,7 +131,7 @@
             <a href="#credits" class="sub-item">Credits</a>
             <a href="#photos" class="sub-item">Photos</a>
             <a href="#achievements" class="sub-item">Achievements</a>
-            <a href="#dad" class="sub-item">About My Dad (In My Opinion)</a>
+            <a href="#dad" class="sub-item">About My Dad</a>
         </div>
 
         <div class="menu-group">
@@ -113,20 +139,9 @@
             <a href="#similarities" class="sub-item">Similarities</a>
             <a href="#differences" class="sub-item">Differences</a>
         </div>
-
+        
         <a href="#why-chess" class="menu-item">WHY YOU SHOULD PLAY CHESS</a>
-        <a href="#why-math" class="menu-item">WHY YOU SHOULD LEARN MORE ADVANCED MATH</a>
-
-        <div class="menu-group">
-            <a href="#contact" class="menu-item">CONTACTS AND SUPPORT</a>
-            <a href="#public-chat" class="sub-item">Public Chat</a>
-        </div>
-
-        <div class="menu-group">
-            <a href="#policy" class="menu-item">POLICY</a>
-            <a href="#privacy" class="sub-item">Privacy Policy</a>
-            <a href="#community" class="sub-item">Community Policy</a>
-        </div>
+        <a href="#why-math" class="menu-item">WHY YOU SHOULD LEARN MATH</a>
     </nav>
 
     <main>
@@ -135,25 +150,27 @@
             <div class="blue-line"></div>
             
             <h2>Hobbies</h2>
-            <ul class="math-chess-list">
-                <li>
-                    <span class="category-label">MATH:</span> 
-                    I am learning math. With many 
-                    <a href="https://artofproblemsolving.com">AoPS features</a> 
-                    I learned many things. I once got <strong>67.5 on the AMC 12</strong> in November 2025.
-                </li>
-                <li>
-                    <span class="category-label">CHESS:</span> 
-                    Chess and math connect in different ways. Also, I got 
-                    <strong>1st place in the 2024 North American Youth</strong> and 
-                    <strong>2nd place in the 2025 Pan American Youth</strong>. (and more)
-                </li>
-            </ul>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label">MATH:</span> 
+                I am learning math. With many <a href="https://artofproblemsolving.com">AoPS features</a> I learned many things. 
+                I once got <strong>67.5 on the AMC 12</strong> in November 2025.
+            </div>
+            <div>
+                <span class="category-label">CHESS:</span> 
+                Chess and math connect in different ways. Also, I got <strong>1st place in the 2024 North American Youth</strong> 
+                and <strong>2nd place in the 2025 Pan American Youth</strong>.
+            </div>
 
             <h2 id="credits">Credits</h2>
             <p>Go to <a href="https://lamnguyen.org">lamnguyen.org</a> to learn more.</p>
         </section>
     </main>
+
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('sidebar-hidden');
+        }
+    </script>
 
 </body>
 </html>
