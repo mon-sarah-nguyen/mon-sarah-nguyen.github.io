@@ -3,31 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
+    <title>Sarah Nguyen | Personal Website</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        nav { border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 20px; }
-        nav a { margin-right: 15px; text-decoration: none; color: blue; }
-        footer { margin-top: 50px; font-size: 0.8em; color: gray; }
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Sidebar - Updated with Serif Font and Photo Space */
+        nav {
+            width: 260px;
+            background-color: #fcfcfc;
+            border-right: 1px solid #ddd;
+            padding: 30px 20px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            /* Changing the sidebar font to a classic Serif style */
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8em;
+            text-align: center;
+            font-family: sans-serif; /* Keep placeholder text clean */
+        }
+
+        .site-title { 
+            font-weight: bold; 
+            font-size: 1.2em;
+            margin-bottom: 25px; 
+            display: block; 
+            color: #000; 
+            text-decoration: none; 
+        }
+        
+        .menu-group { margin-bottom: 20px; }
+        .menu-item { display: block; text-decoration: none; color: #444; font-weight: bold; margin-top: 10px; font-size: 0.95em; }
+        .sub-item { display: block; text-decoration: none; color: #777; margin-left: 15px; margin-top: 5px; font-size: 0.9em; }
+        .sub-item:before { content: "- "; }
+
+        /* Main Content Area */
+        main {
+            margin-left: 320px;
+            padding: 60px;
+            max-width: 750px;
+        }
+
+        /* The Blue Line Header */
+        h1 { 
+            font-size: 3em; 
+            text-transform: uppercase; 
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .blue-line {
+            height: 6px;
+            background-color: #0056b3; /* Professional blue */
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        h2 { text-transform: uppercase; color: #444; margin-top: 40px; font-size: 1.4em; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        
+        ul.math-chess-list { list-style-type: none; padding-left: 0; }
+        ul.math-chess-list li { margin-bottom: 25px; }
+        .category-label { font-weight: bold; font-size: 1.1em; color: #000; display: block; margin-bottom: 5px; }
+
+        a { color: #0056b3; text-decoration: none; border-bottom: 1px solid #0056b3; }
+        a:hover { color: #000; border-bottom-color: #000; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <div class="profile-photo">
+            Photo Space
+        </div>
+
+        <a href="#" class="site-title">sarahnguyen.org</a>
+        
+        <div class="menu-group">
+            <a href="#about" class="menu-item">ABOUT ME</a>
+            <a href="#hobbies" class="sub-item">Hobbies</a>
+            <a href="#credits" class="sub-item">Credits</a>
+            <a href="#photos" class="sub-item">Photos</a>
+            <a href="#achievements" class="sub-item">Achievements</a>
+            <a href="#dad" class="sub-item">About My Dad (In My Opinion)</a>
+        </div>
+
+        <div class="menu-group">
+            <a href="#chess-math" class="menu-item">CHESS AND MATH</a>
+            <a href="#similarities" class="sub-item">Similarities</a>
+            <a href="#differences" class="sub-item">Differences</a>
+        </div>
+
+        <a href="#why-chess" class="menu-item">WHY YOU SHOULD PLAY CHESS</a>
+        <a href="#why-math" class="menu-item">WHY YOU SHOULD LEARN MORE ADVANCED MATH</a>
+
+        <div class="menu-group">
+            <a href="#contact" class="menu-item">CONTACTS AND SUPPORT</a>
+            <a href="#public-chat" class="sub-item">Public Chat</a>
+        </div>
+
+        <div class="menu-group">
+            <a href="#policy" class="menu-item">POLICY</a>
+            <a href="#privacy" class="sub-item">Privacy Policy</a>
+            <a href="#community" class="sub-item">Community Policy</a>
+        </div>
     </nav>
 
     <main>
-        <h1>Hello World</h1>
-        <p>This is my personal website hosted on GitHub Pages.</p>
-    </main>
+        <section id="about">
+            <h1>About Me</h1>
+            <div class="blue-line"></div>
+            
+            <h2>Hobbies</h2>
+            <ul class="math-chess-list">
+                <li>
+                    <span class="category-label">MATH:</span> 
+                    I am learning math. With many 
+                    <a href="https://artofproblemsolving.com">AoPS features</a> 
+                    I learned many things. I once got <strong>67.5 on the AMC 12</strong> in November 2025.
+                </li>
+                <li>
+                    <span class="category-label">CHESS:</span> 
+                    Chess and math connect in different ways. Also, I got 
+                    <strong>1st place in the 2024 North American Youth</strong> and 
+                    <strong>2nd place in the 2025 Pan American Youth</strong>. (and more)
+                </li>
+            </ul>
 
-    <footer>
-        <p>&copy; 2026</p>
-    </footer>
+            <h2 id="credits">Credits</h2>
+            <p>Go to <a href="https://lamnguyen.org">lamnguyen.org</a> to learn more.</p>
+        </section>
+    </main>
 
 </body>
 </html>
