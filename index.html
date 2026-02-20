@@ -39,7 +39,7 @@
             transform: translateX(-100%);
         }
 
-        /* Menu Toggle Button (Hamburger style) */
+        /* Menu Toggle Button (Hamburger style like lamnguyen.org) */
         .menu-toggle {
             position: fixed;
             top: 20px;
@@ -62,7 +62,7 @@
             border-radius: 2px;
         }
 
-        /* Sidebar Elements */
+        /* Sidebar Profile & Menu Styling */
         .profile-photo {
             width: 150px;
             height: 150px;
@@ -83,7 +83,7 @@
         .sub-item { display: block; text-decoration: none; color: #777; margin-left: 15px; margin-top: 5px; font-size: 0.9em; }
         .sub-item:before { content: "- "; }
 
-        /* Visitor Counter Styling */
+        /* Visitor Counter Section */
         .counter-wrapper {
             margin-top: 40px;
             padding-top: 20px;
@@ -93,7 +93,7 @@
             color: #999;
         }
 
-        /* Main Content */
+        /* Main Content - Expanded when sidebar is hidden */
         main {
             margin-left: var(--sidebar-width);
             padding: 60px 80px;
@@ -104,6 +104,7 @@
 
         .sidebar-hidden main { margin-left: 60px; }
 
+        /* Heading Style with the Thick Blue Line */
         h1 { font-size: 3em; text-transform: uppercase; margin: 0; color: #000; }
         .blue-line { height: 6px; background-color: var(--primary-blue); width: 100%; margin-bottom: 40px; }
         h2 { text-transform: uppercase; color: #444; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -119,12 +120,13 @@
 </head>
 <body>
 
-    <button class="menu-toggle" onclick="toggleMenu()">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
         <span></span><span></span><span></span>
     </button>
 
     <nav id="sidebar">
         <div class="profile-photo">Photo Space</div>
+        
         <a href="#" class="site-title">sarahnguyen.org</a>
         
         <div class="menu-group">
@@ -145,11 +147,16 @@
         <a href="#why-chess" class="menu-item">WHY YOU SHOULD PLAY CHESS</a>
         <a href="#why-math" class="menu-item">WHY YOU SHOULD LEARN MATH</a>
 
+        <div class="menu-group">
+            <a href="#policy" class="menu-item">POLICY</a>
+            <a href="#privacy" class="sub-item">Privacy Policy</a>
+            <a href="#community" class="sub-item">Community Policy</a>
+        </div>
+
         <div class="counter-wrapper">
             <p>VISITORS</p>
-            <a href="https://www.hitwebcounter.com" target="_blank">
-                <img src="https://hitwebcounter.com/counter/counter.php?page=SarahNguyenOrg&style=0006&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0" />
-            </a>
+            <a href="https://www.hitwebcounter.com/" target="_blank">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=21478229&style=0006&nbdigits=5&type=ip&initCount=0" title="Free Tools" Alt="Free Tools" border="0" /></a>
         </div>
     </nav>
 
@@ -166,7 +173,7 @@
             </div>
             <div>
                 <span class="category-label">CHESS:</span> 
-                Chess and math connect in different ways. Also, I got <strong>1st place in the 2024 North American Youth</strong> 
+                Chess and math connect in different ways. Also, I got <strong>1st place in the 2024 North American Youth</strong>
                 and <strong>2nd place in the 2025 Pan American Youth</strong>.
             </div>
 
