@@ -118,6 +118,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
@@ -125,27 +126,27 @@
     </button>
 
     <nav id="sidebar">
-        <img src="pictures/SARAH_01.jpg" alt="Sarah Nguyen" style="width: 250px; height: 250px; object-fit: cover; margin-bottom: 20px; border-radius: 5px;">
+        <img src="pictures/SARAH.jpg" alt="Sarah Nguyen" style="width: 250px; height: 250px; object-fit: cover; margin-bottom: 20px; border-radius: 5px;">
         
         <a href="#" class="site-title">Sarah Nguyen</a>
         
         <div class="menu-group">
-            <a href="#about" class="menu-item">ABOUT ME</a>
-            <a href="#hobbies" class="sub-item">Hobbies</a>
-            <a href="#credits" class="sub-item">Credits</a>
-            <a href="#photos" class="sub-item">Photos</a>
-            <a href="#achievements" class="sub-item">Achievements</a>
-            <a href="dad.html" class="sub-item">About My Dad</a>
+            <a href="index.html" class="menu-item">ABOUT ME</a>
+            <a href="index.html#hobbies" class="sub-item">Hobbies</a>
+			<a href="index.html#achievements" class="sub-item">Achievements</a>
+            <a href="index.html#photos" class="sub-item">Photos</a>
+            <a href="index.html#dad" class="sub-item">About My Dad</a>
+			<a href="index.html#credits" class="sub-item">Credits</a>
         </div>
 
         <div class="menu-group">
             <a href="chess.html" class="menu-item">CHESS AND MATH</a>
-            <a href="#similarities" class="sub-item">Similarities</a>
-            <a href="#differences" class="sub-item">Differences</a>
+            <a href="chess.html#similarities" class="sub-item">Similarities</a>
+            <a href="chess.html#differences" class="sub-item">Differences</a>
         </div>
         
         <a href="why-chess.html" class="menu-item">WHY YOU SHOULD PLAY CHESS</a>
-        <a href="#why-math" class="menu-item">WHY YOU SHOULD LEARN MATH</a>
+        <a href="why-math.html" class="menu-item">WHY YOU SHOULD LEARN MATH</a>
 
         <div class="counter-wrapper">
             <p>VISITORS</p>
@@ -159,19 +160,60 @@
             <h1>About Me</h1>
             <div class="blue-line"></div>
             
-            <h2>Hobbies</h2>
+            <h2 id="hobbies">Hobbies</h2>
             <div style="margin-bottom: 25px;">
                 <span class="category-label">MATH:</span> 
-                I am learning math. With many <a href="https://artofproblemsolving.com">AoPS features</a>. I got the <strong>G.O.A.T (Greatest of All Time) National Distinction (top distinction) at the Girls' Adventures in Math (GAIM) - Elementary section</strong>. 
+                I am learning math. With many <a href="https://artofproblemsolving.com" target="_blank">AoPS features</a>. I got the <strong>G.O.A.T (Greatest of All Time) National Distinction (top distinction) at the Girls' Adventures in Math (GAIM) - Elementary section</strong>. 
             </div>
             <div>
                 <span class="category-label">CHESS:</span> 
                 Chess and math connect in different ways. Also, I got <strong>Gold medal (champion) in the 2024 North American Youth Chess Championship in the U8 Girls section</strong>
                 and <strong>Silver medal (runner-up) in the 2025 Pan American Youth Chess Championship in the U10 Girls section</strong>.
             </div>
+			
+            <h2 id="achievements">Achievements</h2>
+			
+            <div style="margin-bottom: 25px;">
+                <span class="category-label">Chess:</span> 
+				<ul>
+				<li>Gold Medal (1st Place), 2024 North American Youth Chess Championships, U8 Girls</li>
+				<li>Silver Medal (2nd Place), 2025 Pan-American Youth Chess Championships, U10 Girls</li>
+				<li>Bronze Medal (3rd Place), 2024 Pan-American Youth Chess Championships, U8 Girls</li>
+				<ul>
+            </div>				
+			
+            <div style="margin-bottom: 25px;">
+                <span class="category-label">Math:</span> 
+				<ul>
+				<li>G.O.A.T (Greatest of All Time) National Distinction (top distinction) at the Girls' Adventures in Math (GAIM) - Elementary section</li>
+				<ul>
+            </div>		
+
+
+			
+            <h2 id="photos">Photos</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"> </span>  
+                
+            </div>
+			
+
+            <h2 id="dad">About My Dad (In My Opinion)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label">Dad:</span> 
+				My dad is a PhD in research and math. 
+				The reason he got that is because, when he was little, AI was not a thing, so for the problems, he could not get a solution. 
+				He tried his best for every problem. 
+				Now he continues to do work with unsolved problems. 
+				He thinks it is not good just to look at the solution while only thinking about the problem for a short time. 
+				Thinking can be really important.
+				In 2017, my dad completed the project SARAH (named after me), and has created other theories, but this one is the most famous in my opinion. 
+				After years of solving problems, living in the US, and doing more, he has finally (almost) achieved his goals.
+            </div>		
 
             <h2 id="credits">Credits</h2>
-            <p>Go to <a href="https://lamnguyen.org">lamnguyen.org</a> to learn more.</p>
+            <p>Go to <a href="https://lamnguyen.org" target="_blank">lamnguyen.org</a> to learn more.</p>
+			
         </section>
     </main>
 
