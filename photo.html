@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Nguyen | Personal Website</title>
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-blue: #0056b3;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: #fff;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        /* Sidebar - Using Serif font per Sarah's request */
+        nav {
+            width: var(--sidebar-width);
+            background-color: #fcfcfc;
+            border-right: 1px solid #ddd;
+            padding: 70px 20px 30px 20px;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            font-family: "Georgia", "Times New Roman", serif;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar-hidden nav {
+            transform: translateX(-100%);
+        }
+
+        /* Menu Toggle Button (Hamburger style like lamnguyen.org) */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            cursor: pointer;
+            background: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 2px;
+        }
+
+        /* Sidebar Profile & Menu Styling */
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8em;
+            font-family: sans-serif;
+        }
+
+        .site-title { font-weight: bold; font-size: 1.2em; margin-bottom: 25px; display: block; color: #000; text-decoration: none; }
+        .menu-group { margin-bottom: 20px; }
+        .menu-item { display: block; text-decoration: none; color: #444; font-weight: bold; margin-top: 10px; font-size: 0.95em; }
+        .sub-item { display: block; text-decoration: none; color: #777; margin-left: 15px; margin-top: 5px; font-size: 0.9em; }
+        .sub-item:before { content: "- "; }
+
+        /* Visitor Counter Section */
+        .counter-wrapper {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-family: sans-serif;
+            font-size: 0.75em;
+            color: #999;
+        }
+
+        /* Main Content - Expanded when sidebar is hidden */
+        main {
+            margin-left: var(--sidebar-width);
+            padding: 60px 80px;
+            max-width: 800px;
+            transition: margin-left 0.3s ease;
+            flex-grow: 1;
+        }
+
+        .sidebar-hidden main { margin-left: 60px; }
+
+        /* Heading Style with the Thick Blue Line */
+        h1 { font-size: 3em; text-transform: uppercase; margin: 0; color: #000; }
+        .blue-line { height: 6px; background-color: var(--primary-blue); width: 100%; margin-bottom: 40px; }
+        h2 { text-transform: uppercase; color: #444; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        
+        .category-label { font-weight: bold; color: #000; display: block; margin-bottom: 5px; }
+        a { color: var(--primary-blue); text-decoration: none; border-bottom: 1px solid var(--primary-blue); }
+
+        @media (max-width: 768px) {
+            main { margin-left: 0; padding: 60px 20px; }
+            .sidebar-hidden main { margin-left: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav id="sidebar">
+        <img src="pictures/SARAH.jpg" alt="Sarah Nguyen" style="width: 250px; height: 250px; object-fit: cover; margin-bottom: 20px; border-radius: 5px;">
+        
+        <a href="index.html" class="site-title">Sarah Nguyen</a>
+        
+        <div class="menu-group">
+            <a href="index.html" class="menu-item">ABOUT ME</a>
+            <a href="index.html#hobbies" class="sub-item">Hobbies</a>
+			<a href="index.html#achievements" class="sub-item">Achievements</a>
+            <a href="photo.html" class="sub-item">Photos</a>
+            <a href="index.html#dad" class="sub-item">About My Dad</a>
+			<a href="index.html#credits" class="sub-item">Credits</a>
+        </div>
+
+        <div class="menu-group">
+            <a href="chess.html" class="menu-item">CHESS AND MATH</a>
+            <a href="chess.html#similarities" class="sub-item">Similarities</a>
+            <a href="chess.html#differences" class="sub-item">Differences</a>
+        </div>
+        
+        <a href="why-chess.html" class="menu-item">WHY YOU SHOULD PLAY CHESS</a>
+        <a href="why-math.html" class="menu-item">WHY YOU SHOULD LEARN MATH</a>
+
+        <div class="counter-wrapper">
+            <p>VISITORS</p>
+            <a href="https://www.hitwebcounter.com/" target="_blank">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=21478229&style=0006&nbdigits=5&type=ip&initCount=0" title="Free Tools" Alt="Free Tools" border="0" /></a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h1>Photos</h1>
+            <div class="blue-line"></div>
+			
+			
+            <h2 id="dad">2026 World Amateur Team & U.S. Team East (Parsippany, NJ, USA, February 2026)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>Our team (Abigail Zhou, Thomas Egelhof, Winston Chen, and Sarah Nguyen) won <font color = "red">Top Future Team</font> prize (for teams with all members under age 10) in the <a href="https://njscf.org/usate-2026/" target="_blank">2026 World Amateur Team & U.S. Team East</a>. </h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">
+
+			<a href="pictures/USATE2026_01.jpg" target="_blank" rel="lightbox[field_gallery_image][Our team at USATE 2026"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/USATE2026_01.jpg" width="750" height="500" alt="Our team at USATE 2026" title="Our team at USATE 2026" /></a>  
+
+			<a href="pictures/USATE2026_02.jpg" target="_blank" rel="lightbox[field_gallery_image][Our team at USATE 2026"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/USATE2026_02.jpg" width="750" height="500" alt="Our team at USATE 2026" title="Our team at USATE 2026" /></a> 
+
+			<br/>	
+				
+			<a href="pictures/USATE2026_03.jpg" target="_blank" rel="lightbox[field_gallery_image][Our team at USATE 2026"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/USATE2026_03.jpg" width="375" height="500" alt="Our team at USATE 2026" title="Our team at USATE 2026" /></a>	
+
+			<a href="pictures/USATE2026_05.jpg" target="_blank" rel="lightbox[field_gallery_image][I at USATE 2026"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/USATE2026_05.jpg" width="375" height="500" alt="I at USATE 2026" title="I at USATE 2026" /></a>
+				
+			<br/>	
+                
+            </div>	
+			
+            <h2 id="dad">Pan-American Youth Championship 2024 (Orlando, FL, USA, July 2024)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>I won <font color = "red">Best U10 Girl</font> award in the Blitz game and won <font color = "red">4th Place Trophy (tied for third)</font> in the Classical game in the <a href="https://new.uschess.org/news/americans-bring-home-29-medals-2025-north-american-youth" target="_blank">North American Youth Championship 2025</a> at Kingston, ON, Canada (August 2025).</h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">		
+
+			<a href="pictures/NAYCC_2025_01.jpg" target="_blank" rel="lightbox[field_gallery_image][I am at Award Ceremony"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/NAYCC_2025_01.jpg" width="750" height="500" alt="I am at Award Ceremony" title="I am at Award Ceremony" /></a> 
+			
+			<br/>
+			
+			<a href="pictures/NAYCC_2025_02.jpg" target="_blank" rel="lightbox[field_gallery_image][I won Best U10 Girl in Blitz in the North American Youth Championship 2025 at Kingston, ON, Canada (August 2025)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/NAYCC_2025_02.jpg" width="375" height="500" alt="I won Best U10 Girl in Blitz in the North American Youth Championship 2025 at Kingston, ON, Canada (August 2025)" title="I won Best U10 Girl in Blitz in the North American Youth Championship 2025 at Kingston, ON, Canada (August 2025)" /></a>  
+
+			<a href="pictures/NAYCC_2025_03.jpg" target="_blank" rel="lightbox[field_gallery_image][I won 4th Place trophy (tied for third) in the Classical game in U10 Girls in the North American Youth Championship 2025 at Kingston, ON, Canada (August 2025) and my friend Stella Xin won 1st Place trophy in U10 Open"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/NAYCC_2025_03.jpg" width="375" height="500" alt="I won 4th Place trophy (tied for third) in the Classical game in U10 Girls in the North American Youth Championship 2025 at Kingston, ON, Canada (August 2025) and my friend Stella Xin won 1st Place trophy in U10 Open" title="I won 4th Place trophy (tied for third) in the Classical game in U10 Girls in the North American Youth Championship 2025 at Kingston, ON, Canada (August 2025) and my friend Stella Xin won 1st Place trophy in U10 Open" /></a> 
+
+			<br/>
+                
+            </div>	
+			
+            <h2 id="dad">Pan-American Youth Championship 2025 (Lima, Peru, July - August 2025)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+				<h3>I won <font color = "red">Silver medal</font> (Runner-up) in the Classical chess, won <font color = "red">Bronze medals</font> in the both Rapid and Blitz chess in the U10 Girls sections in the <a href="https://panamericanojuventud2025.fideamerica.net/index.php" target="_blank">XXXV Pan-American Youth Championship 2025</a> in Lima, Peru (July 27 - August 3, 2025).</h3>
+				<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+				<div class="views-field views-field-field-gallery-image">
+				<div class="field-content">
+
+				<a href="pictures/Sarah_Pan-Am_2025_01.jpg" target="_blank" rel="lightbox[field_gallery_image][Silver Medal in Classical"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Pan-Am_2025_01.jpg" width="750" height="500" alt="Silver Medal in Classical" title="Silver Medal in Classical" /></a>  
+
+				<a href="pictures/Sarah_Pan-Am_2025_02.jpg" target="_blank" rel="lightbox[field_gallery_image][Bronze Medal in Rapid"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Pan-Am_2025_02.jpg" width="750" height="500" alt="Bronze Medal in Rapid" title="Bronze Medal in Rapid" /></a> 
+
+				<a href="pictures/Sarah_Pan-Am_2025_03.jpg" target="_blank" rel="lightbox[field_gallery_image][Bronze Medal in Blitz"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Pan-Am_2025_03.jpg" width="750" height="500" alt="Bronze Medal in Blitz" title="Bronze Medal in Blitz" /></a> 	
+					
+				<a href="pictures/Sarah_Pan-Am_2025_05.jpg" target="_blank" rel="lightbox[field_gallery_image][Team USA got the 1st place"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Pan-Am_2025_05.jpg" width="750" height="500" alt="Team USA got the 1st place" title="Team USA got the 1st place" /></a>
+
+				<br/>	
+					
+				<a href="pictures/Sarah_Pan-Am_2025_04.jpg" target="_blank" rel="lightbox[field_gallery_image][With Team USA Head of Delegation WGM Kateřina Němcová"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Pan-Am_2025_04.jpg" width="375" height="500" alt="With Team USA Head of Delegation WGM Kateřina Němcová" title="With Team USA Head of Delegation WGM Kateřina Němcová" /></a>	
+
+				<a href="pictures/Sarah_Pan-Am_2025_06.jpg" target="_blank" rel="lightbox[field_gallery_image][With 1st Place Trophy of Team USA"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Pan-Am_2025_06.jpg" width="375" height="500" alt="With 1st Place Trophy of Team USA" title="With 1st Place Trophy of Team USA" /></a>
+					
+				<br/>	
+                
+            </div>
+			
+			
+            <h2 id="dad">SuperNational VIII (Orlando, FL, USA, May 2025)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>I won a <font color = "red">National medal</font> in the <a href="https://www.uschess.org/tournaments/2025/sn8/" target="_blank">SuperNational VIII</a> (held only once every four years) in the K-3 Championship section in Orlando, Florida, USA (May 2025).</h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">
+
+			<a href="pictures/SuperNational_Sarah_01.jpg" target="_blank" rel="lightbox[field_gallery_image][Picture with GM Awonder Liang at the Award Ceremony"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/SuperNational_Sarah_01.jpg" width="375" height="500" alt="Picture with GM Awonder Liang at the Award Ceremony" title="Picture with GM Awonder Liang at the Award Ceremony" /></a>  
+
+			<a href="pictures/SuperNational_Sarah_02.jpg" target="_blank" rel="lightbox[field_gallery_image][Picture with NM Bryan Tillis at the Award Ceremony"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/SuperNational_Sarah_02.jpg" width="375" height="500" alt="Picture with NM Bryan Tillis at the Award Ceremony" title="Picture with NM Bryan Tillis at the Award Ceremony" /></a> 
+
+			<br/>	
+                
+            </div>	
+			
+			
+            <h2 id="dad">GAIM 2025 - Girls' Adventures in Math (April - May 2025)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>Our team representing <a href="https://sites.google.com/site/westchestercountymathcircle/news/gaim-2025?authuser=0" target="_blank">Westchester Area Math Circle</a> won <font color = "red">G.O.A.T (Greatest of All Time) National Distinction</font> (top distinction) and <a href="https://www.girlsadventuresinmath.com/2025-national-distinctions" target="_blank">Top 6 Overall</a> (<a href="https://www.girlsadventuresinmath.com/2025-regional-award-winners" target="_blank">Top 5 teams in Northeast</a>) in the Elementary Section (grades 3-5) of <a href="https://www.girlsadventuresinmath.com/" target="_blank">GAIM 2025 - Girls' Adventures in Math</a>. </h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">
+				
+			<a href="pictures/GAIM_2025_01.jpg" target="_blank" rel="lightbox[field_gallery_image][GAIM 2025 GOAT National Distinction"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/GAIM_2025_01.jpg" width="375" height="500" alt="Our team at USATE 2026" title="GAIM 2025 GOAT National Distinction" /></a>	
+
+			<a href="pictures/GAIM_2025_02.jpg" target="_blank" rel="lightbox[field_gallery_image][GAIM 2025 GOAT National Distinction"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/GAIM_2025_02.jpg" width="375" height="500" alt="I at USATE 2026" title="GAIM 2025 GOAT National Distinction" /></a>
+				
+			<br/>	
+                
+            </div>	
+			
+			
+            <h2 id="dad">North American Youth Chess Championship 2024 (Dulles, VA, USA, December 2024)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>I won <font color = "red">Gold medal</font> in the Classical game and became a champion in the <a href="https://new.uschess.org/news/flash-report-2024-north-american-youth-championships-produce-26-direct-titles-two-norms" target="_blank">2024 North American Youth Chess Championship</a> in the U8 Girls section at Dulles, VA, USA (December 2024).</h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">
+
+			<a href="pictures/SARAH_NAY2024_01.jpg" target="_blank" rel="lightbox[field_gallery_image][I won Gold medal in the Classical game and became a champion in the 2024 North American Youth Chess Championship in the U8 Girls section (December 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/SARAH_NAY2024_01.jpg" width="375" height="500" alt="I won Gold medal in the Classical game and became a champion in the 2024 North American Youth Chess Championship in the U8 Girls section (December 2024)" title="I won Gold medal in the Classical game and became a champion in the 2024 North American Youth Chess Championship in the U8 Girls section (December 2024)" /></a>  
+
+			<a href="pictures/SARAH_NAY2024_02.jpg" target="_blank" rel="lightbox[field_gallery_image][I won Gold medal in the Classical game and became a champion in the 2024 North American Youth Chess Championship in the U8 Girls section (December 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/SARAH_NAY2024_02.jpg" width="375" height="500" alt="I won Gold medal in the Classical game and became a champion in the 2024 North American Youth Chess Championship in the U8 Girls section (December 2024)" title="I won Gold medal in the Classical game and became a champion in the 2024 North American Youth Chess Championship in the U8 Girls section (December 2024)" /></a> 
+
+			<br/>	
+                
+            </div>	
+			
+            <h2 id="dad">National K-12 Grade Championship 2024 (National Harbor, MD, USA, December 2024)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>I won a <font color = "red">National medal</font> in the <a href="https://www.uschess.org/tournaments/2024/k12/" target="_blank">National K-12 Grade Championship 2024</a> in the 3rd Grade Championship section at National Harbor, Maryland, USA (December 2024).</h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">
+
+			<a href="pictures/NG_2024_Sarah_01.jpg" target="_blank" rel="lightbox[field_gallery_image][I won a National medal in the National K-12 Grade Championship 2024 (December 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/NG_2024_Sarah_01.jpg" width="375" height="500" alt="I won a National medal in the National K-12 Grade Championship 2024 (December 2024)" title="I won a National medal in the National K-12 Grade Championship 2024 (December 2024)" /></a>  
+			
+			<a href="pictures/NG_2024_Sarah_02.jpg" target="_blank" rel="lightbox[field_gallery_image][My friend Abi and I won a National medal in the National K-12 Grade Championship 2024 (December 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/NG_2024_Sarah_02.jpg" width="375" height="500" alt="My friend Abi and I won a National medal in the National K-12 Grade Championship 2024 (December 2024)" title="My friend Abi and I won a National medal in the National K-12 Grade Championship 2024 (December 2024)" /></a>  
+
+			<br/>	
+                
+            </div>	
+			
+            <h2 id="dad">FIDE World Cadet Championship 2024 (Montesilvano, Italy, November 2024)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>I got 8th place (among 81 players from different countries around the world) at the <a href="https://www.worldcadetschess2024.com/" target="_blank">FIDE World Cadet Championship 2024</a> in the section U8 Girls at Montesilvano, Italy (November 2024).</h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">
+
+			<a href="pictures/USA_U8_Girls.jpg" target="_blank" rel="lightbox[field_gallery_image][Team USA - U8 Girls"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/USA_U8_Girls.jpg" width="750" height="500" alt="Team USA - U8 Girls" title="Team USA - U8 Girls" /></a>   
+
+			<br/>
+				
+			<a href="pictures/Team_USA.jpg" target="_blank" rel="lightbox[field_gallery_image][Team USA at the FIDE World Cadet Chess Championship 2024"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Team_USA.jpg" width="750" height="500" alt="Team USA at the FIDE World Cadet Chess Championship 2024" title="Team USA at the FIDE World Cadet Chess Championship 2024" /></a>  
+
+			<br/>	
+                
+            </div>	
+			
+            <h2 id="dad">Pan-American Youth Championship 2024 (Orlando, FL, USA, July 2024)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>I won <font color = "red">Bronze medal (tied for second)</font> in the Classical game and won <font color = "red">Silver medal (tied for first)</font> in the Blitz game in the <a href="https://new.uschess.org/news/pan-american-youth-championship-xxxiv-report-and-recap" target="_blank">XXXIV Pan-American Youth Championship 2024</a> at Orlando, Florida, USA (July 2024) and got the direct title <font color = "red">Woman Candidate Master (WCM)</font> by FIDE.</h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">
+
+			<a href="pictures/SARAH_Pan-Am_01.jpg" target="_blank" rel="lightbox[field_gallery_image][I won Bronze medal (tied for second) in the Classical game in the Pan-American Youth Championship XXXIV 2024 at Orlando, Florida, USA (July 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/SARAH_Pan-Am_01.jpg" width="375" height="500" alt="I won Bronze medal (tied for second) in the Classical game in the Pan-American Youth Championship XXXIV 2024 at Orlando, Florida, USA (July 2024)" title="I won Bronze medal (tied for second) in the Classical game in the Pan-American Youth Championship XXXIV 2024 at Orlando, Florida, USA (July 2024)" /></a>  
+
+			<a href="pictures/SARAH_Pan-Am_02.jpg" target="_blank" rel="lightbox[field_gallery_image][I won Silver medal (tied for first) in the Blitz game in the Pan-American Youth Championship XXXIV 2024 at Orlando, Florida, USA (July 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/SARAH_Pan-Am_02.jpg" width="375" height="500" alt="I won Silver medal (tied for first) in the Blitz game in the Pan-American Youth Championship XXXIV 2024 at Orlando, Florida, USA (July 2024)" title="I won Silver medal (tied for first) in the Blitz game in the Pan-American Youth Championship XXXIV 2024 at Orlando, Florida, USA (July 2024)" /></a> 
+
+			<br/>		
+
+			<a href="pictures/SARAH_Pan-Am_03.jpg" target="_blank" rel="lightbox[field_gallery_image][I am at Award Ceremony"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/SARAH_Pan-Am_03.jpg" width="750" height="500" alt="I am at Award Ceremony" title="I am at Award Ceremony" /></a> 
+
+			<br/>
+                
+            </div>	
+			
+            <h2 id="dad">FIDE World Cup U8 - U12 (Batumi, Georgia, June - July 2024)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+			<h3>I participate in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024).</h3>
+			<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+			<div class="views-field views-field-field-gallery-image">
+			<div class="field-content">
+
+			<a href="pictures/Sarah_WC_01.jpg" target="_blank" rel="lightbox[field_gallery_image][I participate in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_WC_01.jpg" width="375" height="500" alt="I participate in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)" title="I participate in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)" /></a>  
+
+			<a href="pictures/Sarah_WC_02.jpg" target="_blank" rel="lightbox[field_gallery_image][I participate in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_WC_02.jpg" width="375" height="500" alt="I participate in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)" title="I participate in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)" /></a> 
+
+			<br/>		
+
+			<a href="pictures/Team_USA_WC.jpg" target="_blank" rel="lightbox[field_gallery_image][Team USA in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Team_USA_WC.jpg" width="750" height="500" alt="Team USA in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)" title="Team USA in the FIDE World Cup U8 - U12 at Batumi, Georgia (June - July 2024)" /></a> 
+
+			<br/>
+                
+            </div>	
+			
+			
+            <h2 id="dad">2023 National Elementary (K-6) Championship (Baltimore, MD, USA, May 2023)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				
+				<h3>I and my teacher Grandmaster Irina Krush at the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023). This is my first time to get a national award.</h3>
+				<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+				<div class="views-field views-field-field-gallery-image">
+				<div class="field-content">
+
+				<a href="pictures/Sarah_Irina_National_Elementary_2023_01.jpg" target="_blank" rel="lightbox[field_gallery_image][I and my teacher Grandmaster Irina Krush at the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023)]" title="I and my teacher Grandmaster Irina Krush at the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Irina_National_Elementary_2023_01.jpg" width="375" height="500" alt="I and my teacher Grandmaster Irina Krush at the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023)" title="I and my teacher Grandmaster Irina Krush at the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023)" /></a>  
+
+				<a href="pictures/Sarah_National_Elementary_2023_02.jpg" target="_blank" rel="lightbox[field_gallery_image][I got a national award for the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023)]" title="I got a national award for the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023)"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_National_Elementary_2023_02.jpg" width="375" height="500" alt="I got a national award for the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023)" title="I got a national award for the 2023 National Elementary (K-6) Championship in Baltimore Convention Center (May 2023)" /></a> 
+
+			<br/>	
+                
+            </div>		
+			
+            <h2 id="dad">1st Chess Tournament (Bronxville, NY, USA, December 2022)</h2>
+            <div style="margin-bottom: 25px;">
+                <span class="category-label"></span> 
+				<h3>My dad and I at my first chess tournament and I got a trophy (in NY, December 2022)</h3>
+				<div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+				<div class="views-field views-field-field-gallery-image">
+				<div class="field-content">
+
+				<a href="pictures/Sarah_Chess_02.jpg" target="_blank" rel="lightbox[field_gallery_image][First match of first chess tournament (12/03/2022) - Bronxville Scholastic Chess Tournament]" title="First match of first chess tournament (12/03/2022) - Bronxville Scholastic Chess Tournament"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Chess_02.jpg" width="375" height="500" alt="First match of first chess tournament (12/03/2022) - Bronxville Scholastic Chess Tournament" title="First match of first chess tournament (12/03/2022) - Bronxville Scholastic Chess Tournament" /></a>  
+
+				<a href="pictures/Sarah_Chess_01.jpg" target="_blank" rel="lightbox[field_gallery_image][My dad and I at my first chess tournament (12/03/2022) and I got a trophy]" title="My dad and I at my first chess tournament (12/03/2022) and I got a trophy"><img typeof="foaf:Image" class="image-style-gallery" src="pictures/Sarah_Chess_01.jpg" width="375" height="500" alt="My dad and I at my first chess tournament (12/03/2022) and I got a trophy" title="My dad and I at my first chess tournament (12/03/2022) and I got a trophy" /></a> 
+
+			<br/>	
+                
+            </div>
+			
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('sidebar-hidden');
+        }
+    </script>
+
+</body>
+</html>
